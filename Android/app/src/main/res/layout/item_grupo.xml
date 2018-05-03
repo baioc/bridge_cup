@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="grupo"
+            type="br.ufsc.bridge.android.bridgecup.model.entity.Grupo"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="8dp"
+        app:contentPadding="8dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tv_label_grupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/label_grupo"
+                android:textAppearance="@style/Regular_14"/>
+
+            <TextView
+                android:id="@+id/tv_letra_grupo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_label_grupo"
+                android:text="@{grupo.letra}"
+                android:textAllCaps="true"
+                android:textAppearance="@style/Regular_30"
+                tools:text="A"/>
+
+            <ImageView
+                android:id="@+id/ic_selecao_0"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="6dp"
+                android:layout_toRightOf="@id/tv_label_grupo"
+                android:adjustViewBounds="true"
+                tools:src="@android:drawable/btn_star_big_on"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>

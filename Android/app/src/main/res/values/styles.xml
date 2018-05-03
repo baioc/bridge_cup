@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="Regular_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+
+    <style name="Regular_30">
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+
+</resources>

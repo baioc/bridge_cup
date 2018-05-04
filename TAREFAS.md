@@ -8,8 +8,7 @@ Fique à vontade para ajustar ou alterar da melhor forma possível.
 ### "Assine" seu nome
 Para poder identificar você, informe seu nome no espaço abaixo:
 ```
-Ex.:
-Steve Wozniak
+Gabriel Baiocchi de Sant'Anna
 ```
 
 ### 1) Lista de grupos

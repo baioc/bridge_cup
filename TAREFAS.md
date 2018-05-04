@@ -5,6 +5,13 @@ Leia atentamente todo este arquivo antes de começar!
 [Os protótipos](prototipo/README.md) servem como um guia, uma base das informações desejadas em cada tela. 
 Fique à vontade para ajustar ou alterar da melhor forma possível.
 
+### "Assine" seu nome
+Para poder identificar você, informe seu nome no espaço abaixo:
+```
+Ex.:
+Steve Wozniak
+```
+
 ### 1) Lista de grupos
 
 Atualizar tela de grupos para seguir o protótipo [grupos](prototipo/grupos.png).<br/>

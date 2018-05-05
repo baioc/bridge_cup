@@ -20,6 +20,7 @@ public class GrupoViewModel extends ViewModel {
     private MutableLiveData<List<Grupo>> grupos;
     private MutableLiveData<Throwable> error;
 
+    /** Getter da lista dinamica de Grupos */
     public LiveData<List<Grupo>> getGrupos(int ano) {
         if (grupos == null) {
             grupos = new MutableLiveData<>();
@@ -35,6 +36,7 @@ public class GrupoViewModel extends ViewModel {
         return error;
     }
 
+    /** Preenche a lista 'grupos' desse ViewModel com aqueles retornados pela API para um ano dado */
     private void loadGrupos(int ano) {
         WorldCupApiUtil.getClient().getGrupos(ano).enqueue(new Callback<List<Grupo>>() {
             @Override

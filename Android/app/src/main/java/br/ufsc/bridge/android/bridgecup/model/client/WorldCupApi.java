@@ -8,6 +8,11 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+/** Traz os metodos da API da copa:
+ * getEdicoes();
+ * getGrupos(ano);
+ * ambos respondem com uma lista dinamica de tipo Edicao e Grupo, respectivamente.
+ */
 public interface WorldCupApi {
 
     @GET("edicoes")

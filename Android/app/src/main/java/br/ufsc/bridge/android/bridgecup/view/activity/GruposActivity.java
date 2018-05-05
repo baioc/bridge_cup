@@ -14,23 +14,22 @@ import br.ufsc.bridge.android.bridgecup.viewmodel.GrupoViewModel;
 
 public class GruposActivity extends BindingActivity<ActivityGruposBinding> {
 
+    // CONSTANTES
     private static final int ANO = 2018;
-
     private final GruposAdapter mAdapter = new GruposAdapter();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //implementando o adapter
         RecyclerView gruposRecyclerView = getBinding().rvGrupos;
-
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         gruposRecyclerView.setLayoutManager(layoutManager);
-
         gruposRecyclerView.setAdapter(mAdapter);
 
+        //Preenche o Adapter com os Grupos do ViewModel
         GrupoViewModel grupoViewModel = ViewModelProviders.of(this).get(GrupoViewModel.class);
-
         grupoViewModel.getGrupos(ANO)
                 .observe(this, (grupos) -> {
                     if (grupos == null) return;

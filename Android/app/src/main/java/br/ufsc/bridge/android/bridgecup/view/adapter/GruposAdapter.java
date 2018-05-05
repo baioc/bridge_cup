@@ -15,6 +15,7 @@ import br.ufsc.bridge.android.bridgecup.R;
 import br.ufsc.bridge.android.bridgecup.databinding.ItemGrupoBinding;
 import br.ufsc.bridge.android.bridgecup.model.entity.Grupo;
 
+/** O Adapter descreve como os dados sobre os Grupos sao utilizados no layout */
 public class GruposAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemGrupoBinding>> {
 
     private List<Grupo> mGrupos;
@@ -29,6 +30,7 @@ public class GruposAdapter extends RecyclerView.Adapter<BindingViewHolder<ItemGr
     public BindingViewHolder<ItemGrupoBinding> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
+        //@fixme ?
         ItemGrupoBinding binding = DataBindingUtil.inflate(
                 inflater, R.layout.item_grupo, parent, false);
 

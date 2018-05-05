@@ -3,7 +3,7 @@ package br.ufsc.bridge.android.bridgecup.view.activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
@@ -24,7 +24,7 @@ public class GruposActivity extends BindingActivity<ActivityGruposBinding> {
 
         RecyclerView gruposRecyclerView = getBinding().rvGrupos;
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         gruposRecyclerView.setLayoutManager(layoutManager);
 
         gruposRecyclerView.setAdapter(mAdapter);

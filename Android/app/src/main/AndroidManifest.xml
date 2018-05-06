@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ufsc.bridge.android.bridgecup">
 
+    <!-- Acesso a internet para a entity -->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -12,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.activity.GruposActivity">
+        <activity android:name=".view.activity.CopaActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

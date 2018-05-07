@@ -2,7 +2,6 @@ package br.ufsc.bridge.android.bridgecup.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,29 +38,27 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
 
     /** Cria as referencias as Views do layout a serem utilizadas */
     public static class GrupoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        CardView card;
         TextView letra;
         ImageView[] bandeira = new ImageView[4];
 
         public GrupoViewHolder(View v) {
             super(v);
             itemView.setOnClickListener(this);
-            card = v.findViewById(R.id.cv_grupo);
             letra = v.findViewById(R.id.tv_letra);
-            bandeira[0] = v.findViewById(R.id.imageView0);
-            bandeira[1] = v.findViewById(R.id.imageView1);
-            bandeira[2] = v.findViewById(R.id.imageView2);
-            bandeira[3] = v.findViewById(R.id.imageView3);
+            bandeira[0] = v.findViewById(R.id.iv_bandeira_0);
+            bandeira[1] = v.findViewById(R.id.iv_bandeira_1);
+            bandeira[2] = v.findViewById(R.id.iv_bandeira_2);
+            bandeira[3] = v.findViewById(R.id.iv_bandeira_3);
         }
 
         @Override
         //@todo mudar a cor do card ao clickar nela
         public void onClick(View v) {
-            //vai para a tela do Grupo escolhido, enviando seu id
-            String idGrupo = grupos.get(getLayoutPosition()).getIdGrupo();
+            //vai para a tela de Grupo, enviando aquele escolhido de forma serializada
+            Grupo grupo = grupos.get(getLayoutPosition());
             Intent intent = new Intent(v.getContext(), GrupoActivity.class);
-            intent.putExtra("GRUPO", idGrupo);
-            v.getContext().startActivity(intent);//@fixme o app trava e fecha se o celular estiver virado na horizontal
+            intent.putExtra("GRUPO", grupo);
+            v.getContext().startActivity(intent);
         }
     }
 
@@ -85,7 +82,7 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
         //preenche o icone das bandeiras
         for (int sel = 0; sel < holder.bandeira.length; sel++) {
             Picasso.get()
-                    .load(grupo.getSelecoes().get(sel).getBandeiraURL())
+                    .load(grupo.getSelecoes().get(sel).getIconeURL())
                     .placeholder(android.R.drawable.ic_menu_gallery)
                     .error(android.R.drawable.stat_notify_error)
                     .into(holder.bandeira[sel]);

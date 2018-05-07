@@ -2,9 +2,10 @@ package br.ufsc.bridge.android.bridgecup.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Grupo {
+public class Grupo implements Serializable {
 
     // PRIVATE VARIABLES
 

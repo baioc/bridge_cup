@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/red</item>
     </style>
 
+    <style name="Regular_10">
+        <item name="android:textSize">10dp</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/beige</item>
+    </style>
+
     <style name="Regular_14">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>

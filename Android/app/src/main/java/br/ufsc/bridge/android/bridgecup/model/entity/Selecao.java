@@ -2,7 +2,9 @@ package br.ufsc.bridge.android.bridgecup.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Selecao {
+import java.io.Serializable;
+
+public class Selecao implements Serializable {
 
     // PRIVATE VARIABLES
 

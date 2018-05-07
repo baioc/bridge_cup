@@ -33,12 +33,11 @@ public class CopaActivity extends AppCompatActivity {
         gruposRecyclerView = (RecyclerView) findViewById(R.id.rv_grupos);
         gruposRecyclerView.setHasFixedSize(true);
         gruposRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        connectAndGetGrupos(ANO);
+        connectAndFillGrupos(ANO);
     }
 
 
-    //@fixme alguns icones nao carregam
-    private void connectAndGetGrupos(final int ano){
+    private void connectAndFillGrupos(final int ano){
         WorldCupApi api = WorldCupApiUtil.getClient();//conecta a api
 
         Call<List<Grupo>> grupos = api.getGrupos(ano);//GET grupos

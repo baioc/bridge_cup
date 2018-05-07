@@ -2,8 +2,10 @@ package br.ufsc.bridge.android.bridgecup.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class Partida {
+
+public class Partida implements Serializable {
 
     // PRIVATE VARIABLES
 

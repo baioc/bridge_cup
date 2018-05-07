@@ -2,7 +2,9 @@ package br.ufsc.bridge.android.bridgecup.model.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Estadio {
+import java.io.Serializable;
+
+public class Estadio implements Serializable {
 
     // PRIVATE VARIABLES
 

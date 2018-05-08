@@ -76,6 +76,7 @@ public class Partida implements Serializable {
         this.dataHora = dataHora;
     }
 
+    /** Retorna a sigla */
     public String getSelecaoCasa() {
         return selecaoCasa;
     }
@@ -83,6 +84,7 @@ public class Partida implements Serializable {
         this.selecaoCasa = selecaoCasa;
     }
 
+    /** Retorna a sigla */
     public String getSelecaoFora() {
         return selecaoFora;
     }

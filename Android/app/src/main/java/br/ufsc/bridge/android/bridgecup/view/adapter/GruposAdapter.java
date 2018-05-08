@@ -51,11 +51,10 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
             bandeira[3] = v.findViewById(R.id.iv_bandeira_3);
         }
 
-        @Override
-        //@todo mudar a cor do card ao clickar nela
+        //@todo mudar a cor das coisas ao clickar nelas
         public void onClick(View v) {
-            //vai para a tela de Grupo, enviando aquele escolhido de forma serializada
-            Grupo grupo = grupos.get(getLayoutPosition());
+            //vai para a tela de Grupo, enviando o id daquele escolhido de forma serializada
+            String grupo = grupos.get(getLayoutPosition()).getIdGrupo();
             Intent intent = new Intent(v.getContext(), GrupoActivity.class);
             intent.putExtra("GRUPO", grupo);
             v.getContext().startActivity(intent);
@@ -68,7 +67,6 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
         View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
         return new GrupoViewHolder(view);
     }
-
 
     /** Preenche o layout criado para cada grupo */
     @Override

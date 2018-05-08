@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -23,10 +24,10 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
     private Context context;
 
 
-    /** Construtor do Selecoes adapter
+    /** Construtor do SelecoesAdapter
      *
      *  @param selecoes Lista de selecoes utilizados para preencher o layout
-     *  @param rowLayout Modelo de layout para referenciar a cada selecao da lista
+     *  @param rowLayout Modelo de layout para referenciar a cada item da lista
      */
     public SelecoesAdapter(List<Selecao> selecoes, int rowLayout, Context context) {
         this.selecoes = selecoes;
@@ -35,18 +36,23 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
     }
 
     /** Cria as referencias as Views do layout a serem utilizadas */
-    public static class SelecaoViewHolder extends RecyclerView.ViewHolder {
+    public static class SelecaoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView bandeira;
         TextView nome;
         TextView sigla;
 
         public SelecaoViewHolder(View v) {
             super(v);
+            itemView.setOnClickListener(this);
             nome = v.findViewById(R.id.tv_nome);
             sigla = v.findViewById(R.id.tv_sigla);
-            bandeira = v.findViewById(R.id.iv_bandeira);
+            bandeira = v.findViewById(R.id.iv_bandeira_casa);
         }
 
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), selecoes.get(getLayoutPosition()).getNome(), Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -56,8 +62,7 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
         return new SelecaoViewHolder(view);
     }
 
-
-    /** Preenche o layout criado para cada selecao */
+    /** Preenche o layout criado, "bind" dos dados */
     @Override
     public void onBindViewHolder(SelecaoViewHolder holder, final int position) {
         Selecao selecao = selecoes.get(position);

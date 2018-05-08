@@ -29,31 +29,34 @@ public class CopaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_copa);
 
         //configura o recyclerView : layout com os grupos
-        //@todo adicionar background e mudar o titulo superior em cada tela diferente
-        gruposRecyclerView = (RecyclerView) findViewById(R.id.rv_grupos);
+        //@todo adicionar background e mudar o titulo superior em cada tela diferente e icones do app no AndroidManifest
+        gruposRecyclerView = findViewById(R.id.rv_grupos);
         gruposRecyclerView.setHasFixedSize(true);
         gruposRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
         connectAndFillGrupos(ANO);
     }
 
 
-    private void connectAndFillGrupos(final int ano){
+    /** Preenche o gruposRecyclerView dessa classe utilizando a API REST */
+    private void connectAndFillGrupos(int ano){
         WorldCupApi api = WorldCupApiUtil.getClient();//conecta a api
-
-        Call<List<Grupo>> grupos = api.getGrupos(ano);//GET grupos
+        Call<List<Grupo>> gruposCall = api.getGrupos(ano);//GET grupos
 
         //utiliza a resposta da api (processada em uma thread no background)
-        grupos.enqueue( new Callback<List<Grupo>>() {
+        gruposCall.enqueue( new Callback<List<Grupo>>() {
             @Override
             public void onResponse(Call<List<Grupo>> call, Response<List<Grupo>> response) {
-                //seta o recyclerView utilizando o modelo definido e preenchido em GruposAdapter
+                //utiliza o adapter para preecher cada item seguindo o modelo de layout
                 List<Grupo> grupos = response.body();
-                gruposRecyclerView.setAdapter(new GruposAdapter((List<Grupo>) grupos, R.layout.item_grupo, getApplicationContext()));
+                gruposRecyclerView.setAdapter(new GruposAdapter(grupos, R.layout.item_grupo, getApplicationContext()));
             }
 
             @Override
             public void onFailure(Call<List<Grupo>>  call, Throwable throwable) {
-                Toast.makeText(getApplicationContext(), "API Load Error at " + CopaActivity.class.getSimpleName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText( getApplicationContext(),
+                            getString(R.string.load_error_at) + getApplicationContext().getClass().getSimpleName(),
+                                Toast.LENGTH_SHORT).show();
             }
         });
     }

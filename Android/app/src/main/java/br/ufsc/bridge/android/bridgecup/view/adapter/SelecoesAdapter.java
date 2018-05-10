@@ -1,13 +1,13 @@
 package br.ufsc.bridge.android.bridgecup.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.ufsc.bridge.android.bridgecup.R;
 import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
+import br.ufsc.bridge.android.bridgecup.view.activity.SelecaoActivity;
 
 /** Descreve e aplica a forma como os dados sobre as Selecoes sao utilizados no layout */
 public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.SelecaoViewHolder> {
@@ -46,12 +47,16 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
             itemView.setOnClickListener(this);
             nome = v.findViewById(R.id.tv_nome);
             sigla = v.findViewById(R.id.tv_sigla);
-            bandeira = v.findViewById(R.id.iv_bandeira_casa);
+            bandeira = v.findViewById(R.id.iv_icone_casa);
         }
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), selecoes.get(getLayoutPosition()).getNome(), Toast.LENGTH_SHORT).show();
+            //vai para a tela da Selecao, enviando-a de forma serializada
+            Selecao selecao = selecoes.get(getLayoutPosition());
+            Intent intent = new Intent(v.getContext(), SelecaoActivity.class);
+            intent.putExtra("SELECAO", selecao);
+            v.getContext().startActivity(intent);
         }
     }
 

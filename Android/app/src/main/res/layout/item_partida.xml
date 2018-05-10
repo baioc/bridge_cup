@@ -14,13 +14,13 @@
         android:textAlignment="center"
         android:textColor="@color/beige"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_versus"
-        app:layout_constraintEnd_toStartOf="@+id/iv_bandeira_casa"
+        app:layout_constraintEnd_toStartOf="@+id/iv_icone_casa"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="CASA" />
 
     <ImageView
-        android:id="@+id/iv_bandeira_casa"
+        android:id="@+id/iv_icone_casa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -41,19 +41,19 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/versus"
+        android:text="@string/label_versus"
         android:textAlignment="center"
         android:textColor="@color/beige"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iv_bandeira_fora"
+        app:layout_constraintEnd_toStartOf="@+id/iv_icone_fora"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_bandeira_casa"
+        app:layout_constraintStart_toEndOf="@+id/iv_icone_casa"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="X" />
 
     <ImageView
-        android:id="@+id/iv_bandeira_fora"
+        android:id="@+id/iv_icone_fora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -76,7 +76,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_versus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_bandeira_fora"
+        app:layout_constraintStart_toEndOf="@+id/iv_icone_fora"
         tools:text="FORA" />
 
 </android.support.constraint.ConstraintLayout>

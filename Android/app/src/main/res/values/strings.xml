@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Bridge Cup</string>
-    <string name="load_error_at">API Load failed at </string>
+    <string name="load_error">API Load Failed</string>
     <string name="label_grupo">Grupo</string>
     <string name="label_selecoes">Seleções</string>
     <string name="label_partidas">Partidas</string>
-    <string name="versus">X</string>
+    <string name="label_versus">X</string>
+    <string name="label_selecao">Seleção</string>
 </resources>

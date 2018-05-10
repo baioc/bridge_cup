@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/iv_bandeira_casa"
+        android:id="@+id/iv_icone_casa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
@@ -29,7 +29,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/beige"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_bandeira_casa"
+        app:layout_constraintStart_toEndOf="@+id/iv_icone_casa"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Selecao" />
 

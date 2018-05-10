@@ -68,9 +68,7 @@ public class GrupoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Grupo>  call, Throwable throwable) {
-                Toast.makeText( getApplicationContext(),
-                            getString(R.string.load_error_at) + getApplicationContext().getClass().getSimpleName(),
-                                Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.load_error), Toast.LENGTH_SHORT).show();
             }
         });
     }

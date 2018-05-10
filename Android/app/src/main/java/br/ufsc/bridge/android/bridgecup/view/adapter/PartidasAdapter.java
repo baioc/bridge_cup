@@ -50,9 +50,9 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
             super(v);
             itemView.setOnClickListener(this);
             sigla_casa = v.findViewById(R.id.tv_sigla_casa);
-            bandeira_casa = v.findViewById(R.id.iv_bandeira_casa);
+            bandeira_casa = v.findViewById(R.id.iv_icone_casa);
             sigla_fora = v.findViewById(R.id.tv_sigla_fora);
-            bandeira_fora = v.findViewById(R.id.iv_bandeira_fora);
+            bandeira_fora = v.findViewById(R.id.iv_icone_fora);
         }
 
         public void onClick(View v) {

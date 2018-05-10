@@ -1,13 +1,13 @@
 package br.ufsc.bridge.android.bridgecup.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -17,6 +17,7 @@ import br.ufsc.bridge.android.bridgecup.R;
 import br.ufsc.bridge.android.bridgecup.model.entity.Grupo;
 import br.ufsc.bridge.android.bridgecup.model.entity.Partida;
 import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
+import br.ufsc.bridge.android.bridgecup.view.activity.PartidaActivity;
 
 /** Descreve e aplica a forma como os dados sobre as Partidas sao utilizados no layout */
 public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.PartidaViewHolder> {
@@ -56,7 +57,11 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
         }
 
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), partidas.get(getLayoutPosition()).getIdPartida().toString(), Toast.LENGTH_SHORT).show();
+            //vai para a tela da Partida, enviando-a de forma serializada
+            Partida partida = partidas.get(getLayoutPosition());
+            Intent intent = new Intent(v.getContext(), PartidaActivity.class);
+            intent.putExtra("PARTIDA", partida);
+            v.getContext().startActivity(intent);
         }
     }
 

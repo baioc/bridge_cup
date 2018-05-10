@@ -19,8 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.GrupoActivity"></activity>
-        <activity android:name=".view.activity.SelecaoActivity"></activity>
+        <activity android:name=".view.activity.GrupoActivity" />
+        <activity android:name=".view.activity.SelecaoActivity" />
+        <activity android:name=".view.activity.PartidaActivity"></activity>
     </application>
 
 </manifest>

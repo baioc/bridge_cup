@@ -53,8 +53,8 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
 
         //@todo mudar a cor das coisas ao clickar nelas
         public void onClick(View v) {
-            //vai para a tela de Grupo, enviando o id daquele escolhido de forma serializada
-            String grupo = grupos.get(getLayoutPosition()).getIdGrupo();
+            //vai para a tela do Grupo, enviando-o de forma serializada
+            Grupo grupo = grupos.get(getLayoutPosition());
             Intent intent = new Intent(v.getContext(), GrupoActivity.class);
             intent.putExtra("GRUPO", grupo);
             v.getContext().startActivity(intent);

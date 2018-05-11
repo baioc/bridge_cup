@@ -53,9 +53,9 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
         @Override
         public void onClick(View v) {
             //vai para a tela da Selecao, enviando-a de forma serializada
-            Selecao selecao = selecoes.get(getLayoutPosition());
+            String selecao = selecoes.get(getLayoutPosition()).getSigla();
             Intent intent = new Intent(v.getContext(), SelecaoActivity.class);
-            intent.putExtra("SELECAO", selecao);
+            intent.putExtra("SIG_SELECAO", selecao);
             v.getContext().startActivity(intent);
         }
     }

@@ -1,5 +1,8 @@
 package br.ufsc.bridge.android.bridgecup.model.client;
 
+import java.util.List;
+
+import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -30,5 +33,16 @@ public class WorldCupApiUtil {
                 .build();
 
         return retrofit.create(WorldCupApi.class);
+    }
+
+    /** @returns Selecao com a sigla passada como parametro, se nao encontrar retorna null*/
+    public static Selecao getSelecaoBySigla(List<Selecao> selecoes, String sigla) {
+        for (Selecao selecao : selecoes) {
+            if (selecao.getSigla().equalsIgnoreCase(sigla)) {
+                return selecao;
+            }
+        }
+
+        return null;
     }
 }

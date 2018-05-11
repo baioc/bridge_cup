@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import br.ufsc.bridge.android.bridgecup.R;
+import br.ufsc.bridge.android.bridgecup.model.client.WorldCupApiUtil;
 import br.ufsc.bridge.android.bridgecup.model.entity.Grupo;
 import br.ufsc.bridge.android.bridgecup.model.entity.Partida;
 import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
@@ -77,8 +78,8 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
     @Override
     public void onBindViewHolder(PartidaViewHolder holder, final int position) {
         Partida partida = partidas.get(position);
-        Selecao casa = getSelecaoBySigla(selecoes, partida.getSelecaoCasa());
-        Selecao fora = getSelecaoBySigla(selecoes, partida.getSelecaoFora());
+        Selecao casa = WorldCupApiUtil.getSelecaoBySigla(selecoes, partida.getSelecaoCasa());
+        Selecao fora = WorldCupApiUtil.getSelecaoBySigla(selecoes, partida.getSelecaoFora());
 
         holder.sigla_casa.setText(partida.getSelecaoCasa());
         Picasso.get()
@@ -93,17 +94,6 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
                 .placeholder(android.R.drawable.ic_menu_gallery)
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.bandeira_fora);
-    }
-
-    /** @returns Selecao com a sigla passada como parametro, se nao encontrar retorna null*/
-    private Selecao getSelecaoBySigla(List<Selecao> selecoes, String sigla) {
-        for (Selecao selecao : selecoes) {
-            if (selecao.getSigla().equalsIgnoreCase(sigla)) {
-                return selecao;
-            }
-        }
-
-        return null;
     }
 
     @Override

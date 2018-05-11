@@ -20,7 +20,7 @@ import retrofit2.Response;
 public class CopaActivity extends AppCompatActivity {
 
     private static final int ANO = 2018;
-    private RecyclerView gruposRecyclerView = null;
+    private RecyclerView gruposRecyclerView;
 
 
     @Override
@@ -29,7 +29,10 @@ public class CopaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_copa);
 
         //configura o recyclerView : layout com os grupos
-        //@todo adicionar background e mudar o titulo superior em cada tela diferente e icones do app no AndroidManifest
+        //@todo adicionar background
+        //@todo mudar o titulo superior em cada tela diferente
+        //@todo definir icones do app no AndroidManifest
+        //@todo Back Navigation https://developer.android.com/training/implementing-navigation/temporal
         gruposRecyclerView = findViewById(R.id.rv_grupos);
         gruposRecyclerView.setHasFixedSize(true);
         gruposRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));

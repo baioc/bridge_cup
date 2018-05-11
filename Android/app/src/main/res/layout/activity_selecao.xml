@@ -35,7 +35,7 @@
                     style="@style/Regular_18"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
@@ -56,13 +56,6 @@
                     app:layout_constraintGuide_percent="0.1"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <android.support.constraint.Guideline
-                    android:id="@+id/guide_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.03" />
-
                 <ImageView
                     android:id="@+id/iv_bandeira"
                     android:layout_width="0dp"
@@ -78,6 +71,13 @@
                     app:layout_constraintTop_toTopOf="@+id/guide_top"
                     app:layout_constraintVertical_bias="0.507"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guide_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.03" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/guide_right"
@@ -107,7 +107,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/guide_bottom"
-                    tools:text="Informacoes" />
+                    tools:text="Informacoes Selecao" />
 
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>

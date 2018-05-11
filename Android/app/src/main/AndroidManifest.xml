@@ -12,16 +12,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.CopaActivity">
+
+        <activity android:name=".view.activity.CopaActivity"
+            android:label="World Cup"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.GrupoActivity" />
-        <activity android:name=".view.activity.SelecaoActivity" />
-        <activity android:name=".view.activity.PartidaActivity"></activity>
+
+        <activity android:name=".view.activity.GrupoActivity"
+            android:label="Grupo"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".view.activity.CopaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.activity.CopaActivity" />
+        </activity>
+
+        <activity android:name=".view.activity.SelecaoActivity"
+            android:label="Seleção"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".view.activity.GrupoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.activity.GrupoActivity" />
+        </activity>
+
+        <activity android:name=".view.activity.PartidaActivity"
+            android:label="Partida"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".view.activity.GrupoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.activity.GrupoActivity" />
+        </activity>
+
     </application>
 
 </manifest>

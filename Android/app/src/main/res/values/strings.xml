@@ -6,4 +6,8 @@
     <string name="label_partidas">Partidas</string>
     <string name="label_versus">X</string>
     <string name="label_selecao">Seleção</string>
+    <string name="label_informacoes">Informações</string>
+    <string name="label_torcer">Torcer</string>
+    <string name="label_estadio">Estádio</string>
+    <string name="label_empate">EMPATE</string>
 </resources>

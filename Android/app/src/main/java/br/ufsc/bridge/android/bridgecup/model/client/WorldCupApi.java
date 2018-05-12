@@ -16,9 +16,6 @@ import retrofit2.http.Path;
  * Interface para a API REST
  */
 public interface WorldCupApi {
-
-    //@todo remover trechos de codigo nao utilizados
-
     /* ------------- Edições ------------- */
 
     //Listas de edições da copa do mundo

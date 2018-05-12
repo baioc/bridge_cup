@@ -42,13 +42,6 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
         this.context = context;
     }
 
-    public PartidasAdapter(List<Partida> partidas, List<Selecao> selecoes, int rowLayout, Context context) {
-        this.partidas = partidas;
-        this.selecoes = selecoes;
-        this.rowLayout = rowLayout;
-        this.context = context;
-    }
-
     /**
      * Cria as referencias as Views do layout a serem utilizadas
      */

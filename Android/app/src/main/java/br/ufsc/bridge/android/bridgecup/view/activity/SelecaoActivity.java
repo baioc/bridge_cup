@@ -39,8 +39,10 @@ public class SelecaoActivity extends AppCompatActivity {
 
         //dependendo de como a activity foi iniciada, decide se deve utilizar a api
         if (selecao == null) {
+            setTitle(sigla);
             connectAndGetSelecao(sigla);
         } else {
+            setTitle(selecao.getNome());
             fillSelecao(selecao);
         }
     }
@@ -78,7 +80,7 @@ public class SelecaoActivity extends AppCompatActivity {
                 .error(android.R.drawable.stat_notify_error)
                 .into(bandeira);
 
-        //@todo colocar tudo isso nas strings.xml
+        //@note talvez seja melhor colocar tudo isso nas strings.xml
         info.setText(String.format(
             "Participou de %d copas\n\n" +
             "Ganhou %d copas\n\n" +

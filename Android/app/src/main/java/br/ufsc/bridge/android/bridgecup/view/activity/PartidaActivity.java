@@ -55,6 +55,8 @@ public class PartidaActivity extends AppCompatActivity {
         } else {
             fillPartida(partida);
         }
+
+        setTitle(infoPartida.getText().toString().substring(0, infoPartida.getText().toString().indexOf("\n")));
     }
 
 
@@ -121,15 +123,14 @@ public class PartidaActivity extends AppCompatActivity {
             "Data: %s\n\n" +
             "Horário: %s",
             siglaCasa,
-            getString(R.string.label_versus),
+            getString(R.string.versus),
             siglaFora,
             dateTime.substring(0, separateDate),
             dateTime.substring(separateDate + 1, dateTime.length())
         ));
 
-        //@todo botoes para torcer usando a api
         this.votosCasa.setText(String.format("%d%%\n" + "%s", (votosCasa*100) / votosTotal, siglaCasa));
-        this.votosEmpate.setText(String.format("%d%%\n" + "%s", (votosEmpate*100) / votosTotal, getString(R.string.label_empate)));
+        this.votosEmpate.setText(String.format("%d%%\n" + "%s", (votosEmpate*100) / votosTotal, getString(R.string.empate)));
         this.votosFora.setText(String.format("%d%%\n" + "%s", (votosFora*100) / votosTotal, siglaFora));
 
         connectAndGetEstadio(partida.getIdEstadio());

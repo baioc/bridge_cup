@@ -27,12 +27,10 @@ public class CopaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_copa);
+        setTitle(R.string.label_cup);
 
         //configura o recyclerView : layout com os grupos
-        //@todo adicionar background
-        //@todo mudar o titulo superior em cada tela diferente
-        //@todo definir icones do app no AndroidManifest
-        //@todo Back Navigation https://developer.android.com/training/implementing-navigation/temporal
+        //@todo Back Navigation @ https://developer.android.com/training/implementing-navigation/ancestral
         gruposRecyclerView = findViewById(R.id.rv_grupos);
         gruposRecyclerView.setHasFixedSize(true);
         gruposRecyclerView.setLayoutManager(new GridLayoutManager(CopaActivity.this, 2));

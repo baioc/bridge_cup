@@ -30,23 +30,24 @@ public class GrupoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grupo);
 
         //configura os recyclerViews
-        selecoesRecyclerView = (RecyclerView) findViewById(R.id.rv_selecoes);
+        selecoesRecyclerView = findViewById(R.id.rv_selecoes);
         selecoesRecyclerView.setHasFixedSize(true);
         selecoesRecyclerView.setLayoutManager(new GridLayoutManager(GrupoActivity.this, 2));
-        partidasRecyclerView = (RecyclerView) findViewById(R.id.rv_partidas);
+        partidasRecyclerView = findViewById(R.id.rv_partidas);
         partidasRecyclerView.setHasFixedSize(true);
         partidasRecyclerView.setLayoutManager(new LinearLayoutManager(GrupoActivity.this));
 
         //utiliza a Intent que iniciou essa activity e extrai dela o grupo enviado
-        //@todo aumentar a "clickBox" das selecoes e das partidas
         Intent intent = getIntent();
         Grupo grupo = (Grupo) intent.getSerializableExtra("GRUPO");
         String idGrupo = intent.getStringExtra("ID_GRUPO");
 
         //dependendo de como a activity foi iniciada, decide se deve utilizar a api
         if (grupo == null) {
+            setTitle("Grupo " + idGrupo.substring(0, 2));
             connectAndGetSelecoesPartidas(idGrupo);
         } else {
+            setTitle("Grupo " + grupo.getLetra());
             fillSelecoesPartidas(grupo);
         }
     }

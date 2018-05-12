@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="4dp"
-            android:text="@string/label_grupo"
+            android:text="@string/grupo"
             android:textAlignment="center"
             android:textAppearance="@style/Regular_14"
             android:textColor="@color/beige"

@@ -1,13 +1,17 @@
 <resources>
     <string name="app_name">Bridge Cup</string>
+
     <string name="load_error">API Load Failed</string>
-    <string name="label_grupo">Grupo</string>
-    <string name="label_selecoes">Seleções</string>
-    <string name="label_partidas">Partidas</string>
-    <string name="label_versus">X</string>
-    <string name="label_selecao">Seleção</string>
-    <string name="label_informacoes">Informações</string>
-    <string name="label_torcer">Torcer</string>
-    <string name="label_estadio">Estádio</string>
-    <string name="label_empate">EMPATE</string>
+
+    <string name="label_cup">World Cup</string>
+
+    <string name="grupo">Grupo</string>
+    <string name="selecoes">Seleções</string>
+    <string name="partidas">Partidas</string>
+    <string name="versus">X</string>
+    <string name="selecao">Seleção</string>
+    <string name="informacoes">Informações</string>
+    <string name="torcer">Torcer</string>
+    <string name="estadio">Estádio</string>
+    <string name="empate">EMPATE</string>
 </resources>

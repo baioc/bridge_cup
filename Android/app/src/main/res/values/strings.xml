@@ -2,6 +2,8 @@
     <string name="app_name">Bridge Cup</string>
 
     <string name="load_error">API Load Failed</string>
+    <string name="post_error">API Post Failed</string>
+    <string name="post_success">Voto registrado!</string>
 
     <string name="label_cup">World Cup</string>
 

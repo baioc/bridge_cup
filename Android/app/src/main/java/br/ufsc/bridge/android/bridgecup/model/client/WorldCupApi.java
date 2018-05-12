@@ -7,7 +7,9 @@ import br.ufsc.bridge.android.bridgecup.model.entity.Estadio;
 import br.ufsc.bridge.android.bridgecup.model.entity.Grupo;
 import br.ufsc.bridge.android.bridgecup.model.entity.Partida;
 import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
+import br.ufsc.bridge.android.bridgecup.model.entity.Voto;
 import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -83,5 +85,5 @@ public interface WorldCupApi {
 
     //Votar no resultado de uma partida
     @POST("partidas/{idPartida}/votos")
-    Call<Partida> postVoto(@Path("idPartida") int idPartida);
+    Call<Voto> postVoto(@Path("idPartida") int idPartida, @Field("voto") String voto);
 }

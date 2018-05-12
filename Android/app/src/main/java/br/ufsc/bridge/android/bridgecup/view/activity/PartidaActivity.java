@@ -51,7 +51,7 @@ public class PartidaActivity extends AppCompatActivity {
 
         //dependendo de como a activity foi iniciada, decide se deve utilizar a api
         if (partida == null) {
-            connectAndGetPartida(idPartida);
+            connectAndGetPartida(idPartida.intValue());
         } else {
             fillPartida(partida);
         }
@@ -118,6 +118,7 @@ public class PartidaActivity extends AppCompatActivity {
         int votosTotal = votosCasa + votosEmpate + votosFora;
 
         //@todo pensar em alguma maneira inteligente de carregar as bandeiras/icones das selecoes
+        //@todo tambem implementar o click em cada uma das selecoes indo para sua respectiva tela
         infoPartida.setText(String.format(
             "%s    %s    %s\n\n" +
             "Data: %s\n\n" +

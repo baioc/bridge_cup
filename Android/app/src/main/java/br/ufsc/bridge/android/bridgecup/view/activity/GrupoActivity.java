@@ -22,7 +22,6 @@ public class GrupoActivity extends AppCompatActivity {
 
     private RecyclerView selecoesRecyclerView;
     private RecyclerView partidasRecyclerView;
-    private Grupo grupo = null;
 
 
     @Override
@@ -33,44 +32,53 @@ public class GrupoActivity extends AppCompatActivity {
         //configura os recyclerViews
         selecoesRecyclerView = (RecyclerView) findViewById(R.id.rv_selecoes);
         selecoesRecyclerView.setHasFixedSize(true);
-        selecoesRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        selecoesRecyclerView.setLayoutManager(new GridLayoutManager(GrupoActivity.this, 2));
         partidasRecyclerView = (RecyclerView) findViewById(R.id.rv_partidas);
         partidasRecyclerView.setHasFixedSize(true);
-        partidasRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        partidasRecyclerView.setLayoutManager(new LinearLayoutManager(GrupoActivity.this));
 
         //utiliza a Intent que iniciou essa activity e extrai dela o grupo enviado
         //@todo aumentar a "clickBox" das selecoes e das partidas
         Intent intent = getIntent();
-        grupo = (Grupo) intent.getSerializableExtra("GRUPO");
-        String idGrupo = (String) intent.getSerializableExtra("ID_GRUPO");
+        Grupo grupo = (Grupo) intent.getSerializableExtra("GRUPO");
+        String idGrupo = intent.getStringExtra("ID_GRUPO");
 
         //dependendo de como a activity foi iniciada, decide se deve utilizar a api
         if (grupo == null) {
-            connectAndFillSelecoesPartidas(idGrupo);
+            connectAndGetSelecoesPartidas(idGrupo);
+        } else {
+            fillSelecoesPartidas(grupo);
         }
-
-        //utiliza os adapters para preecher cada item seguindo os modelos de layout
-        selecoesRecyclerView.setAdapter(new SelecoesAdapter(grupo.getSelecoes(), R.layout.item_selecao, getApplicationContext()));
-        partidasRecyclerView.setAdapter(new PartidasAdapter(grupo, R.layout.item_partida, getApplicationContext()));
     }
 
 
-    /** Preenche os RecyclerViews dessa classe utilizando a API REST */
-    private void connectAndFillSelecoesPartidas(String idGrupo){
+    /**
+     * Carrega o Grupo utilizando a API REST
+     */
+    private void connectAndGetSelecoesPartidas(String idGrupo){
         WorldCupApi api = WorldCupApiUtil.getClient();//conecta a api
-        Call<Grupo> grupoCall = api.getGrupo(idGrupo);///GET grupo
+        Call<Grupo> grupoCall = api.getGrupo(idGrupo);//GET grupo
 
         //utiliza a resposta da api (processada em uma thread no background)
         grupoCall.enqueue( new Callback<Grupo>() {
             @Override
             public void onResponse(Call<Grupo> call, Response<Grupo> response) {
-                grupo = response.body();
+                Grupo grupo = response.body();
+                fillSelecoesPartidas(grupo);
             }
 
             @Override
             public void onFailure(Call<Grupo>  call, Throwable throwable) {
-                Toast.makeText(getApplicationContext(), getString(R.string.load_error), Toast.LENGTH_SHORT).show();
+                Toast.makeText(GrupoActivity.this, getString(R.string.load_error), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /**
+     * Utiliza o adapter para preecher os dados das Selecoes e Partidas no grupo
+     */
+    private void fillSelecoesPartidas(Grupo grupo) {
+        selecoesRecyclerView.setAdapter(new SelecoesAdapter(grupo.getSelecoes(), R.layout.item_selecao, GrupoActivity.this));
+        partidasRecyclerView.setAdapter(new PartidasAdapter(grupo, R.layout.item_partida, GrupoActivity.this));
     }
 }

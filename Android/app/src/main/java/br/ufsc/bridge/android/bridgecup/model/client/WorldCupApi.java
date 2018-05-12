@@ -12,7 +12,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-/** Interface para a API REST */
+/**
+ * Interface para a API REST
+ */
 public interface WorldCupApi {
 
     //@todo remover trechos de codigo nao utilizados

@@ -20,7 +20,9 @@ import br.ufsc.bridge.android.bridgecup.model.entity.Partida;
 import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
 import br.ufsc.bridge.android.bridgecup.view.activity.PartidaActivity;
 
-/** Descreve e aplica a forma como os dados sobre as Partidas sao utilizados no layout */
+/**
+ * Descreve e aplica a forma como os dados sobre as Partidas sao utilizados no layout
+ */
 public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.PartidaViewHolder> {
 
     private static List<Partida> partidas;
@@ -29,8 +31,7 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
     private Context context;
 
 
-    /** Construtor do PartidasAdapter
-     *
+    /**
      *  @param grupo Grupo que contem as listas de Partidas e Selecoes utilizadas para preencher o layout
      *  @param rowLayout Modelo de layout para referenciar a cada item da lista
      */
@@ -41,7 +42,16 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
         this.context = context;
     }
 
-    /** Cria as referencias as Views do layout a serem utilizadas */
+    public PartidasAdapter(List<Partida> partidas, List<Selecao> selecoes, int rowLayout, Context context) {
+        this.partidas = partidas;
+        this.selecoes = selecoes;
+        this.rowLayout = rowLayout;
+        this.context = context;
+    }
+
+    /**
+     * Cria as referencias as Views do layout a serem utilizadas
+     */
     public static class PartidaViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView sigla_casa;
         ImageView bandeira_casa;
@@ -74,7 +84,9 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
     }
 
 
-    /** Preenche o layout criado, "bind" dos dados */
+    /**
+     * Preenche o layout criado, "bind" dos dados
+     */
     @Override
     public void onBindViewHolder(PartidaViewHolder holder, final int position) {
         Partida partida = partidas.get(position);

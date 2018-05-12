@@ -17,7 +17,9 @@ import br.ufsc.bridge.android.bridgecup.R;
 import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
 import br.ufsc.bridge.android.bridgecup.view.activity.SelecaoActivity;
 
-/** Descreve e aplica a forma como os dados sobre as Selecoes sao utilizados no layout */
+/**
+ * Descreve e aplica a forma como os dados sobre as Selecoes sao utilizados no layout
+ */
 public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.SelecaoViewHolder> {
 
     private static List<Selecao> selecoes;
@@ -25,8 +27,7 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
     private Context context;
 
 
-    /** Construtor do SelecoesAdapter
-     *
+    /**
      *  @param selecoes Lista de selecoes utilizados para preencher o layout
      *  @param rowLayout Modelo de layout para referenciar a cada item da lista
      */
@@ -36,7 +37,9 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
         this.context = context;
     }
 
-    /** Cria as referencias as Views do layout a serem utilizadas */
+    /**
+     * Cria as referencias as Views do layout a serem utilizadas
+     */
     public static class SelecaoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView bandeira;
         TextView nome;
@@ -53,9 +56,9 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
         @Override
         public void onClick(View v) {
             //vai para a tela da Selecao, enviando-a de forma serializada
-            String selecao = selecoes.get(getLayoutPosition()).getSigla();
+            Selecao selecao = selecoes.get(getLayoutPosition());
             Intent intent = new Intent(v.getContext(), SelecaoActivity.class);
-            intent.putExtra("SIG_SELECAO", selecao);
+            intent.putExtra("SELECAO", selecao);
             v.getContext().startActivity(intent);
         }
     }
@@ -67,7 +70,9 @@ public class SelecoesAdapter extends RecyclerView.Adapter<SelecoesAdapter.Seleca
         return new SelecaoViewHolder(view);
     }
 
-    /** Preenche o layout criado, "bind" dos dados */
+    /**
+     * Preenche o layout criado, "bind" dos dados
+     */
     @Override
     public void onBindViewHolder(SelecaoViewHolder holder, final int position) {
         Selecao selecao = selecoes.get(position);

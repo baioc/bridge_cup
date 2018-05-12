@@ -35,14 +35,16 @@ public class CopaActivity extends AppCompatActivity {
         //@todo Back Navigation https://developer.android.com/training/implementing-navigation/temporal
         gruposRecyclerView = findViewById(R.id.rv_grupos);
         gruposRecyclerView.setHasFixedSize(true);
-        gruposRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        gruposRecyclerView.setLayoutManager(new GridLayoutManager(CopaActivity.this, 2));
 
-        connectAndFillGrupos(ANO);
+        connectAndGetGrupos(ANO);
     }
 
 
-    /** Preenche o gruposRecyclerView dessa classe utilizando a API REST */
-    private void connectAndFillGrupos(int ano){
+    /**
+     * Carrega a lista de Grupos utilizando a API REST
+     */
+    private void connectAndGetGrupos(int ano){
         WorldCupApi api = WorldCupApiUtil.getClient();//conecta a api
         Call<List<Grupo>> gruposCall = api.getGrupos(ano);//GET grupos
 
@@ -50,16 +52,22 @@ public class CopaActivity extends AppCompatActivity {
         gruposCall.enqueue( new Callback<List<Grupo>>() {
             @Override
             public void onResponse(Call<List<Grupo>> call, Response<List<Grupo>> response) {
-                //utiliza o adapter para preecher cada item seguindo o modelo de layout
                 List<Grupo> grupos = response.body();
-                gruposRecyclerView.setAdapter(new GruposAdapter(grupos, R.layout.item_grupo, getApplicationContext()));
+                fillGrupos(grupos);
             }
 
             @Override
             public void onFailure(Call<List<Grupo>>  call, Throwable throwable) {
-                Toast.makeText(getApplicationContext(), getString(R.string.load_error), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CopaActivity.this, getString(R.string.load_error), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /**
+     * Utiliza o adapter para preecher cada Grupo
+     */
+    private void fillGrupos(List<Grupo> grupos) {
+        gruposRecyclerView.setAdapter(new GruposAdapter(grupos, R.layout.item_grupo, CopaActivity.this));
     }
 
 }

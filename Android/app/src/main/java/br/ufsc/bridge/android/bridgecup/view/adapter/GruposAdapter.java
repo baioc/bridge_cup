@@ -17,7 +17,9 @@ import br.ufsc.bridge.android.bridgecup.R;
 import br.ufsc.bridge.android.bridgecup.model.entity.Grupo;
 import br.ufsc.bridge.android.bridgecup.view.activity.GrupoActivity;
 
-/** Descreve e aplica a forma como os dados sobre os Grupos sao utilizados no layout */
+/**
+ * Descreve e aplica a forma como os dados sobre os Grupos sao utilizados no layout
+ */
 public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewHolder> {
 
     private static List<Grupo> grupos;
@@ -25,8 +27,7 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
     private Context context;
 
 
-    /** Construtor do Grupos adapter
-     *
+    /**
      *  @param grupos Lista de grupos utilizados para preencher o layout
      *  @param rowLayout Modelo de layout para referenciar a cada grupo da lista
      */
@@ -36,7 +37,9 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
         this.context = context;
     }
 
-    /** Cria as referencias as Views do layout a serem utilizadas */
+    /**
+     * Cria as referencias as Views do layout a serem utilizadas
+     */
     public static class GrupoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView letra;
         ImageView[] bandeira = new ImageView[4];
@@ -68,7 +71,9 @@ public class GruposAdapter extends RecyclerView.Adapter<GruposAdapter.GrupoViewH
         return new GrupoViewHolder(view);
     }
 
-    /** Preenche o layout criado para cada grupo */
+    /**
+     * Preenche o layout criado para cada grupo
+     */
     @Override
     public void onBindViewHolder(GrupoViewHolder holder, final int position) {
         //instancia esse grupo especifico

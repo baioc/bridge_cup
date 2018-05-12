@@ -6,7 +6,9 @@ import br.ufsc.bridge.android.bridgecup.model.entity.Selecao;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/** Classe para utilizar a API REST */
+/**
+ * Classe para utilizar a API REST
+ */
 public class WorldCupApiUtil {
 
     // CONSTANTES
@@ -18,7 +20,9 @@ public class WorldCupApiUtil {
 
 
     // CLASS FUNCTIONS
-    /** Cria e retorna um objeto que segue a interface WorldCupApi */
+    /**
+     * Cria e retorna um objeto que segue a interface WorldCupApi
+     */
     public static WorldCupApi getClient() {
         if (worldCupApiClient == null) {
             worldCupApiClient = createClient();
@@ -35,7 +39,9 @@ public class WorldCupApiUtil {
         return retrofit.create(WorldCupApi.class);
     }
 
-    /** @returns Selecao com a sigla passada como parametro, se nao encontrar retorna null*/
+    /**
+     * @returns Selecao com a sigla passada como parametro, se nao encontrar retorna null
+     */
     public static Selecao getSelecaoBySigla(List<Selecao> selecoes, String sigla) {
         for (Selecao selecao : selecoes) {
             if (selecao.getSigla().equalsIgnoreCase(sigla)) {

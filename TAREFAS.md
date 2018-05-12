@@ -73,10 +73,9 @@ Também informe o seu portifólio de apps (links).<br/>
 Não tem problema não ter experiência anterior ou apps desenvolvidos.
 
 ```
-Ex.:
- - Conheço Java e já brinquei com o kotlin 
- - Uber: https://play.google.com/store/apps/details?id=com.ubercab
- - Telegram: https://github.com/DrKLO/Telegram
+ - Estou aprendendo os paradigmas de Orientação a Objetos que foram utilizados no app
+ - Conheço Java
+ - Montei um app simples para enviar comandos via Bluetooth a um Arduino controlando o motor de um skate eletrico
 ```
 
 ## Lembrete

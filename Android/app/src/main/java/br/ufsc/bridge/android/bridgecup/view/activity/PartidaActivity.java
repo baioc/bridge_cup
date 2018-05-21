@@ -160,7 +160,7 @@ public class PartidaActivity extends AppCompatActivity {
     /**
      * Converte uma representacao de data e hora puramente numerica para algo mais legivel
      * @param unix long em formato unixDateTime para uma
-     * @return String em formato "dd/MM/yyyy HH:mm"
+     * @return String em formato "dd/MM/yyyy HHhmm"
      */
     public static String unixToDateTime(long unix) {
         Date date = new java.util.Date(unix*1000L);

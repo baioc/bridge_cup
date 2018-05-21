@@ -44,7 +44,7 @@ public class GrupoActivity extends AppCompatActivity {
 
         //dependendo de como a activity foi iniciada, decide se deve utilizar a api
         if (grupo == null) {
-            setTitle("Grupo " + idGrupo.substring(0, 2));
+            setTitle("Grupo " + idGrupo.charAt(0));
             connectAndGetSelecoesPartidas(idGrupo);
         } else {
             setTitle("Grupo " + grupo.getLetra());

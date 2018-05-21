@@ -83,6 +83,8 @@ public class PartidasAdapter extends RecyclerView.Adapter<PartidasAdapter.Partid
     @Override
     public void onBindViewHolder(PartidaViewHolder holder, final int position) {
         Partida partida = partidas.get(position);
+
+        //@todo tratamento de erro, e se nao encontrar a selecao com essa sigla na lista?
         Selecao casa = WorldCupApiUtil.getSelecaoBySigla(selecoes, partida.getSelecaoCasa());
         Selecao fora = WorldCupApiUtil.getSelecaoBySigla(selecoes, partida.getSelecaoFora());
 
